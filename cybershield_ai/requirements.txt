@@ -1,0 +1,105 @@
+# Core Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# AI/ML Libraries
+torch==2.1.1
+torchvision==0.16.1
+transformers==4.36.0
+tensorflow==2.15.0
+scikit-learn==1.3.2
+xgboost==2.0.2
+opencv-python==4.8.1.78
+numpy==1.24.4
+pandas==2.1.4
+
+# Security Tools
+python-nmap==0.7.1
+python-whois==0.8.0
+dnspython==2.4.2
+requests==2.31.0
+aiohttp==3.9.1
+cryptography==41.0.8
+pycryptodome==3.19.0
+
+# Database & Storage
+sqlalchemy==2.0.23
+alembic==1.13.1
+psycopg2-binary==2.9.9
+redis==5.0.1
+pymongo==4.6.0
+elasticsearch==8.11.0
+
+# Task Queue & Messaging
+celery==5.3.4
+kombu==5.3.4
+kafka-python==2.0.2
+
+# Web & API
+httpx==0.25.2
+websockets==12.0
+jinja2==3.1.2
+python-multipart==0.0.6
+
+# Monitoring & Logging
+prometheus-client==0.19.0
+structlog==23.2.0
+sentry-sdk[fastapi]==1.38.0
+
+# Data Processing
+pandas==2.1.4
+numpy==1.24.4
+scipy==1.11.4
+matplotlib==3.8.2
+seaborn==0.13.0
+plotly==5.17.0
+
+# Network & Security
+scapy==2.5.0
+netaddr==0.10.1
+ipaddress==1.0.23
+paramiko==3.4.0
+fabric==3.2.2
+
+# Utilities
+python-dotenv==1.0.0
+click==8.1.7
+rich==13.7.0
+typer==0.9.0
+pydantic-extra-types==2.2.0
+
+# Development & Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+black==23.11.0
+flake8==6.1.0
+mypy==1.7.1
+bandit==1.7.5
+
+# Additional AI Libraries
+sentence-transformers==2.2.2
+spacy==3.7.2
+nltk==3.8.1
+textblob==0.17.1
+langdetect==1.0.9
+
+# Computer Vision
+pillow==10.1.0
+imageio==2.33.1
+albumentations==1.3.1
+
+# Time Series & Forecasting
+prophet==1.1.4
+statsmodels==0.14.0
+
+# Blockchain & Crypto
+web3==6.11.4
+pycryptodome==3.19.0
+hashlib-compat==1.0.1
+
+# Quantum Computing (for future quantum-safe crypto)
+qiskit==0.45.0
+cirq==1.2.0
