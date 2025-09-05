@@ -1,0 +1,74 @@
+groups:
+  - name: metro_security_alerts
+    rules:
+      - alert: HighRiskCommandDetected
+        expr: metro_commands_total{classification="Invalid - Malicious"} > 5
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High number of malicious commands detected"
+          description: "{{ $value }} malicious commands detected in the last minute"
+
+      - alert: SuspiciousActivitySpike
+        expr: rate(metro_commands_total{classification="Invalid - Suspicious"}[5m]) > 0.1
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Suspicious activity spike detected"
+          description: "High rate of suspicious commands: {{ $value }} per second"
+
+      - alert: SecurityEventHigh
+        expr: metro_security_events_total{event_type="high_risk_command"} > 3
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Multiple high-risk security events"
+          description: "{{ $value }} high-risk security events in the last minute"
+
+      - alert: FailedLoginAttempts
+        expr: metro_security_events_total{event_type="failed_login"} > 10
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Multiple failed login attempts"
+          description: "{{ $value }} failed login attempts in the last 5 minutes"
+
+      - alert: RateLimitExceeded
+        expr: metro_security_events_total{event_type="rate_limit_exceeded"} > 5
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Rate limit exceeded multiple times"
+          description: "{{ $value }} rate limit violations in the last minute"
+
+      - alert: AISystemDown
+        expr: up{job="metro-security"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Metro Security System is down"
+          description: "The metro security system has been down for more than 1 minute"
+
+      - alert: DatabaseConnectionLost
+        expr: up{job="postgres"} == 0
+        for: 30s
+        labels:
+          severity: critical
+        annotations:
+          summary: "Database connection lost"
+          description: "PostgreSQL database is unreachable"
+
+      - alert: RedisConnectionLost
+        expr: up{job="redis"} == 0
+        for: 30s
+        labels:
+          severity: warning
+        annotations:
+          summary: "Redis cache connection lost"
+          description: "Redis cache is unreachable"
